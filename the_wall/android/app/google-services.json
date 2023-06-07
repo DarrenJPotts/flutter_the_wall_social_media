@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "738599167122",
+    "project_id": "flutter-the-wall",
+    "storage_bucket": "flutter-the-wall.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:738599167122:android:945f3e523cc997431eb24b",
+        "android_client_info": {
+          "package_name": "com.example.the_wall"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "738599167122-r6r0uri1pb2uf7hr8ohi77p70cp1ut2a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBD5XyPeptdtdQn-heWFWtptHqrliARwp8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "738599167122-r6r0uri1pb2uf7hr8ohi77p70cp1ut2a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
