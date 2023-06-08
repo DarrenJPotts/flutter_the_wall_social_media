@@ -1,6 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:the_wall/screens/profile_screen.dart';
+import 'package:the_wall/widgets/main_drawer.dart';
 import 'package:the_wall/widgets/text_field.dart';
 import 'package:the_wall/widgets/wall_post.dart';
 
@@ -15,7 +17,7 @@ class _HomeScreenState extends State<HomeScreen> {
   // get current user
   final currentUser = FirebaseAuth.instance.currentUser!;
 
-  TextEditingController _textController = TextEditingController();
+  final TextEditingController _textController = TextEditingController();
 
   // sign out user
   void _signOut() {
@@ -39,6 +41,13 @@ class _HomeScreenState extends State<HomeScreen> {
     }
   }
 
+  void _goToProfileScreen() {
+    Navigator.of(context).pop();
+
+    Navigator.of(context)
+        .push(MaterialPageRoute(builder: (context) => const ProfileScreen()));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,12 +59,11 @@ class _HomeScreenState extends State<HomeScreen> {
             color: Colors.white,
           ),
         ),
-        actions: [
-          IconButton(
-            onPressed: _signOut,
-            icon: const Icon(Icons.logout),
-          )
-        ],
+        iconTheme: const IconThemeData(color: Colors.white),
+      ),
+      drawer: MainDrawer(
+        onProfileTap: _goToProfileScreen,
+        onLogoutTap: _signOut,
       ),
       backgroundColor: Colors.grey[300],
       body: Column(
