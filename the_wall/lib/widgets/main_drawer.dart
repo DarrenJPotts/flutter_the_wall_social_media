@@ -32,9 +32,7 @@ class MainDrawer extends StatelessWidget {
           DrawerTile(
             icon: const Icon(Icons.person),
             text: "P R O F I L E",
-            onTap: () {
-              Navigator.pop(context);
-            },
+            onTap: onProfileTap,
           ),
           const Spacer(),
           Padding(
@@ -42,9 +40,7 @@ class MainDrawer extends StatelessWidget {
             child: DrawerTile(
               icon: const Icon(Icons.logout),
               text: "L O G O U T",
-              onTap: () {
-                Navigator.pop(context);
-              },
+              onTap: onLogoutTap,
             ),
           )
         ],

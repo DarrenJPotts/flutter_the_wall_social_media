@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:the_wall/helper/helper_methods.dart';
 import 'package:the_wall/screens/profile_screen.dart';
 import 'package:the_wall/widgets/main_drawer.dart';
 import 'package:the_wall/widgets/text_field.dart';
@@ -52,20 +53,21 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.grey[900],
-        title: const Text(
+        title: Text(
           "The Wall",
           style: TextStyle(
-            color: Colors.white,
+            color: Theme.of(context).colorScheme.onPrimary,
           ),
         ),
-        iconTheme: const IconThemeData(color: Colors.white),
+        iconTheme: IconThemeData(
+          color: Theme.of(context).colorScheme.onPrimary,
+        ),
       ),
       drawer: MainDrawer(
         onProfileTap: _goToProfileScreen,
         onLogoutTap: _signOut,
       ),
-      backgroundColor: Colors.grey[300],
+      backgroundColor: Theme.of(context).colorScheme.background,
       body: Column(
         children: [
           // the wall
@@ -84,7 +86,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       return WallPost(
                           message: post['Message'],
                           user: post['UserEmail'],
-                          time: '',
+                          time: formatDate(post['TimeStamp']),
                           postId: post.id,
                           likes: List<String>.from(post['Likes'] ?? []));
                     }),
